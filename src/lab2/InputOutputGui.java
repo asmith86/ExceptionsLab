@@ -26,12 +26,19 @@ public class InputOutputGui {
           JOptionPane.showMessageDialog(null, msg);
         } catch (IllegalArgumentException iae){
             String msg = "Sorry. This entry is mandatory.";
-            JOptionPane.showMessageDialog(null, msg);
+            displayErrorMessage(msg);
+        } catch (ArrayIndexOutOfBoundsException obe){
+            String msg = "Sorry. That name is invalid";
+            displayErrorMessage(msg);
         }
         
   
-        
+       
         
     }
+    
+     private void displayErrorMessage(String msg){
+            JOptionPane.showMessageDialog(null, msg);
+        }
      
 }

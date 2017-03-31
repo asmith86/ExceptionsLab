@@ -29,9 +29,6 @@ public class NameService {
         String[] names = fullName.split(" ");
         String lastName = names[names.length - 1];
         
-        
-       
-        
         return lastName;
     }
     
