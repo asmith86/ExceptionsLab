@@ -24,7 +24,7 @@ public class Challenge1 {
         
         String fullName = JOptionPane.showInputDialog("Enter full name (use Format: first last):");
         String lastName = app.extractLastName(fullName);
-        String msg = "Your last name is: " + lastName;
+        String msg = "Assuming you entered it correctly, your last name is: " + lastName;
         JOptionPane.showMessageDialog(null, msg);
     }
     
@@ -32,7 +32,7 @@ public class Challenge1 {
     // Use exception handling to prevent a crash in the event that fullName
     // is null or empty. Throw the exception to the calling method. and handle
     // it there.
-    public String extractLastName(String fullName) {
+    public String extractLastName(String fullName) throws IllegalArgumentException {
         
         if(null == fullName || fullName.isEmpty()){
             throw new IllegalArgumentException("Full Name is either null or empty");
@@ -40,8 +40,8 @@ public class Challenge1 {
         
         
         String[] names = fullName.split(" ");
-        String lastName = names[2];
-        // Your code goes here.
+        String lastName = names[names.length - 1];
+        
         
         return lastName;
     }
