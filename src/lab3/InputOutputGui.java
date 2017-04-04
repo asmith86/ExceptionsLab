@@ -17,10 +17,17 @@ public class InputOutputGui {
 
     public void startConversation() {
         
-        String fullName = JOptionPane.showInputDialog("Enter full name:");
-        String lastName = nameService.extractLastName(fullName);
-        String msg = "Your last name is: " + lastName;
-        JOptionPane.showMessageDialog(null, msg);
+        try {
+           String fullName = JOptionPane.showInputDialog("Enter full name (use Format: first last):"); 
+           String lastName = nameService.extractLastName(fullName);
+           String msg = "Assuming you entered it correctly, your last name is: " + lastName;
+           JOptionPane.showMessageDialog(null, msg);
+        } catch (InvalidNameException ine) {
+            JOptionPane.showMessageDialog(null, "You did not enter a name.");
+        } catch (ArrayIndexOutOfBoundsException aiobe){
+            JOptionPane.showMessageDialog(null, "You've entered bad information.");
+        }
+        
         
     }
      

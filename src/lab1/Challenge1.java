@@ -22,10 +22,18 @@ public class Challenge1 {
     public static void main(String[] args) {
         Challenge1 app = new Challenge1();
         
-        String fullName = JOptionPane.showInputDialog("Enter full name (use Format: first last):");
-        String lastName = app.extractLastName(fullName);
-        String msg = "Assuming you entered it correctly, your last name is: " + lastName;
-        JOptionPane.showMessageDialog(null, msg);
+        try {
+           String fullName = JOptionPane.showInputDialog("Enter full name (use Format: first last):"); 
+           String lastName = app.extractLastName(fullName);
+           String msg = "Assuming you entered it correctly, your last name is: " + lastName;
+           JOptionPane.showMessageDialog(null, msg);
+        } catch (IllegalArgumentException iae) {
+            JOptionPane.showMessageDialog(null, "You did not enter a name.");
+        } catch (ArrayIndexOutOfBoundsException aiobe){
+            JOptionPane.showMessageDialog(null, "You've entered bad information.");
+        }
+        
+       
     }
     
     // write the code to extract the lastName from the fullName
